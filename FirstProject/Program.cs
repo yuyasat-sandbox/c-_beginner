@@ -2,25 +2,36 @@
 {
     public static void Main()
     {
-        var player1 = new Player("勇者テム");
-        player1.Attack();
+        var kukiwakame = new Snack("茎わかめ", 300, 15);
+        kukiwakame.displayTotalPriceText();
 
-        var player2 = new Player("勇者トム");
-        player2.Attack();
-        player1.Attack();
+        var uguisu = new Snack("鶯ボール", 200, 10);
+        uguisu.displayTotalPriceText();
+
+        var senbei = new Snack("せんべい", 700, 15);
+        senbei.displayTotalPriceText();
     }
 }
 
-public class Player
+public class Snack
 {
-    private string name;
-
-    public Player(string name)
+    string name;
+    int price;
+    int quantity;
+    public Snack(string name, int price, int quantity)
     {
         this.name = name;
+        this.price = price;
+        this.quantity = quantity;
     }
-    public void Attack()
+
+    public int GetTotalPrice()
     {
-        Console.WriteLine($"{name}はスライムに攻撃した。");
+        return price * quantity;
+    }
+
+    public void displayTotalPriceText()
+    {
+        Console.WriteLine($"{name}合計金額は、{GetTotalPrice()}円です。");
     }
 }
