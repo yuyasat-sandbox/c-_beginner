@@ -1,26 +1,26 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-public class Human
+﻿public class Program
 {
-    private int age;
-    public void setAge(int age)
+    public static void Main()
     {
-        this.age = age;
-    }
+        var player1 = new Player("勇者テム");
+        player1.Attack();
 
-    public int getAge()
-    {
-        return this.age;
+        var player2 = new Player("勇者トム");
+        player2.Attack();
+        player1.Attack();
     }
 }
 
-public class Program
+public class Player
 {
-    public static void Main(String[] args)
-    {
-        Human yamada = new Human();
-        yamada.setAge(10);
+    private string name;
 
-        Console.WriteLine($"山田の年齢：{yamada.getAge()}");
+    public Player(string name)
+    {
+        this.name = name;
+    }
+    public void Attack()
+    {
+        Console.WriteLine($"{name}はスライムに攻撃した。");
     }
 }
